@@ -1,0 +1,104 @@
+========================================
+Sysbench Test Parameters:
+TABLES=5, TABLE_SIZE=10000000, THREADS=8, TIME=300, REPORT_INTERVAL=10
+========================================
+[1/3] Preparing data...
+sysbench /usr/share/sysbench/oltp_read_write.lua --db-driver=pgsql --pgsql-host=127.0.0.1 --pgsql-port=5434 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=postgres --tables=5 --table-size=10000000 prepare
+sysbench 1.0.11 (using system LuaJIT 2.1.0-beta3)
+
+Creating table 'sbtest1'...
+Inserting 10000000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+Creating table 'sbtest2'...
+Inserting 10000000 records into 'sbtest2'
+Creating a secondary index on 'sbtest2'...
+Creating table 'sbtest3'...
+Inserting 10000000 records into 'sbtest3'
+Creating a secondary index on 'sbtest3'...
+Creating table 'sbtest4'...
+Inserting 10000000 records into 'sbtest4'
+Creating a secondary index on 'sbtest4'...
+Creating table 'sbtest5'...
+Inserting 10000000 records into 'sbtest5'
+Creating a secondary index on 'sbtest5'...
+[2/3] Running benchmark...
+sysbench /usr/share/sysbench/oltp_read_write.lua --db-driver=pgsql --pgsql-host=127.0.0.1 --pgsql-port=5434 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=postgres --tables=5 --table-size=10000000 --threads=8 --time=300 --report-interval=10 run
+sysbench 1.0.11 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 8
+Report intermediate results every 10 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 10s ] thds: 8 tps: 836.74 qps: 16744.02 (r/w/o: 11721.98/3347.76/1674.28) lat (ms,95%): 15.00 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 8 tps: 891.90 qps: 17836.10 (r/w/o: 12485.50/3566.80/1783.80) lat (ms,95%): 14.21 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 8 tps: 819.50 qps: 16391.98 (r/w/o: 11474.19/3278.80/1639.00) lat (ms,95%): 15.27 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 8 tps: 902.90 qps: 18063.18 (r/w/o: 12643.89/3613.50/1805.80) lat (ms,95%): 13.95 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 8 tps: 958.18 qps: 19162.17 (r/w/o: 13414.10/3831.71/1916.36) lat (ms,95%): 10.27 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 8 tps: 951.83 qps: 19037.67 (r/w/o: 13325.60/3808.41/1903.66) lat (ms,95%): 10.84 err/s: 0.00 reconn/s: 0.00
+[ 70s ] thds: 8 tps: 939.90 qps: 18795.60 (r/w/o: 13158.20/3757.50/1879.90) lat (ms,95%): 10.84 err/s: 0.00 reconn/s: 0.00
+[ 80s ] thds: 8 tps: 929.89 qps: 18600.66 (r/w/o: 13019.51/3721.37/1859.79) lat (ms,95%): 9.91 err/s: 0.00 reconn/s: 0.00
+[ 90s ] thds: 8 tps: 959.80 qps: 19195.07 (r/w/o: 13437.05/3838.41/1919.61) lat (ms,95%): 10.09 err/s: 0.00 reconn/s: 0.00
+[ 100s ] thds: 8 tps: 912.40 qps: 18242.51 (r/w/o: 12769.81/3647.90/1824.80) lat (ms,95%): 11.04 err/s: 0.00 reconn/s: 0.00
+[ 110s ] thds: 8 tps: 889.05 qps: 17788.03 (r/w/o: 12450.72/3559.21/1778.10) lat (ms,95%): 11.24 err/s: 0.00 reconn/s: 0.00
+[ 120s ] thds: 8 tps: 877.05 qps: 17538.29 (r/w/o: 12277.49/3506.60/1754.20) lat (ms,95%): 11.24 err/s: 0.00 reconn/s: 0.00
+[ 130s ] thds: 8 tps: 913.50 qps: 18272.00 (r/w/o: 12789.80/3655.20/1827.00) lat (ms,95%): 11.04 err/s: 0.00 reconn/s: 0.00
+[ 140s ] thds: 8 tps: 891.70 qps: 17833.09 (r/w/o: 12482.99/3566.70/1783.40) lat (ms,95%): 10.09 err/s: 0.00 reconn/s: 0.00
+[ 150s ] thds: 8 tps: 972.50 qps: 19447.70 (r/w/o: 13613.40/3889.30/1945.00) lat (ms,95%): 9.91 err/s: 0.00 reconn/s: 0.00
+[ 160s ] thds: 8 tps: 883.98 qps: 17680.50 (r/w/o: 12377.02/3535.52/1767.96) lat (ms,95%): 12.08 err/s: 0.00 reconn/s: 0.00
+[ 170s ] thds: 8 tps: 845.02 qps: 16900.48 (r/w/o: 11831.16/3379.28/1690.04) lat (ms,95%): 12.75 err/s: 0.00 reconn/s: 0.00
+[ 180s ] thds: 8 tps: 919.00 qps: 18382.07 (r/w/o: 12866.58/3677.49/1838.00) lat (ms,95%): 10.84 err/s: 0.00 reconn/s: 0.00
+[ 190s ] thds: 8 tps: 888.50 qps: 17769.41 (r/w/o: 12438.94/3553.38/1777.09) lat (ms,95%): 11.65 err/s: 0.00 reconn/s: 0.00
+[ 200s ] thds: 8 tps: 882.50 qps: 17649.58 (r/w/o: 12355.06/3529.52/1765.01) lat (ms,95%): 11.87 err/s: 0.00 reconn/s: 0.00
+[ 210s ] thds: 8 tps: 875.20 qps: 17494.51 (r/w/o: 12244.40/3500.40/1749.70) lat (ms,95%): 11.65 err/s: 0.00 reconn/s: 0.00
+[ 220s ] thds: 8 tps: 938.50 qps: 18778.50 (r/w/o: 13147.00/3753.80/1877.70) lat (ms,95%): 9.91 err/s: 0.10 reconn/s: 0.00
+[ 230s ] thds: 8 tps: 879.40 qps: 17589.98 (r/w/o: 12311.99/3519.20/1758.80) lat (ms,95%): 11.45 err/s: 0.00 reconn/s: 0.00
+[ 240s ] thds: 8 tps: 853.00 qps: 17055.86 (r/w/o: 11938.54/3411.21/1706.11) lat (ms,95%): 10.84 err/s: 0.00 reconn/s: 0.00
+[ 250s ] thds: 8 tps: 872.20 qps: 17446.62 (r/w/o: 12213.04/3489.18/1744.39) lat (ms,95%): 11.87 err/s: 0.00 reconn/s: 0.00
+[ 260s ] thds: 8 tps: 871.60 qps: 17434.68 (r/w/o: 12204.66/3486.82/1743.21) lat (ms,95%): 11.87 err/s: 0.00 reconn/s: 0.00
+[ 270s ] thds: 8 tps: 853.30 qps: 17066.77 (r/w/o: 11946.18/3413.89/1706.70) lat (ms,95%): 12.08 err/s: 0.00 reconn/s: 0.00
+[ 280s ] thds: 8 tps: 886.50 qps: 17729.68 (r/w/o: 12410.69/3546.00/1773.00) lat (ms,95%): 10.09 err/s: 0.00 reconn/s: 0.00
+[ 290s ] thds: 8 tps: 912.20 qps: 18245.16 (r/w/o: 12771.54/3649.21/1824.41) lat (ms,95%): 10.09 err/s: 0.00 reconn/s: 0.00
+[ 300s ] thds: 8 tps: 848.99 qps: 16976.19 (r/w/o: 11883.82/3394.38/1697.99) lat (ms,95%): 12.08 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            3760078
+        write:                           1074303
+        other:                           537157
+        total:                           5371538
+    transactions:                        268576 (895.22 per sec.)
+    queries:                             5371538 (17904.53 per sec.)
+    ignored errors:                      1      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          300.0095s
+    total number of events:              268576
+
+Latency (ms):
+         min:                                  3.79
+         avg:                                  8.93
+         max:                                550.12
+         95th percentile:                     12.08
+         sum:                            2399262.08
+
+Threads fairness:
+    events (avg/stddev):           33572.0000/56.13
+    execution time (avg/stddev):   299.9078/0.00
+
+[3/3] Cleaning up...
+sysbench /usr/share/sysbench/oltp_read_write.lua --db-driver=pgsql --pgsql-host=127.0.0.1 --pgsql-port=5434 --pgsql-user=postgres --pgsql-password=postgres --pgsql-db=postgres --tables=5 --table-size=10000000 cleanup
+sysbench 1.0.11 (using system LuaJIT 2.1.0-beta3)
+
+Dropping table 'sbtest1'...
+Dropping table 'sbtest2'...
+Dropping table 'sbtest3'...
+Dropping table 'sbtest4'...
+Dropping table 'sbtest5'...
+========================================
+Sysbench full test completed. Results saved to sysbench_test_20241221_123947.log
